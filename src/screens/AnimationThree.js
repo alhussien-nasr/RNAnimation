@@ -37,17 +37,21 @@ const AnimationThree = () => {
   return (
     <View style={styles.container}>
       <PanGestureHandler onGestureEvent={gestureHandler}>
-        <Animated.View
-          style={[
-            styles.box,
-            {
-              height: 200,
-              width,
-            },
-            animatedStyle,
-          ]}></Animated.View>
+        <Animated.View>
+          <Animated.View
+            style={[
+              styles.box,
+              {
+                height: 200,
+                width,
+              },
+              animatedStyle,
+            ]}></Animated.View>
+          <Animated.View style={[{flex: 1},animatedStyle]}>
+            <Text style={styles.titleText}>swipe up !</Text>
+          </Animated.View>
+        </Animated.View>
       </PanGestureHandler>
-      <Text style={styles.titleText}>swipe up !</Text>
     </View>
   );
 };
