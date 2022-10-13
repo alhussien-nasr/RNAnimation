@@ -1,5 +1,7 @@
 import {StyleSheet, Text, View, PanResponder, Dimensions} from 'react-native';
 import Animated, {
+  Extrapolation,
+  interpolate,
   useAnimatedGestureHandler,
   useAnimatedStyle,
   useSharedValue,
@@ -30,9 +32,22 @@ const AnimationThree = () => {
     },
   });
 
-  const animatedStyle = useAnimatedStyle(() => ({
-    transform: [{translateY: move.value}],
-  }));
+  const animatedStyle = useAnimatedStyle(() => {
+    const movex = interpolate(move.value, [0, height], [0, width * 0.2], {
+      extrapolateRight: Extrapolation.CLAMP,
+    });
+    const scale = interpolate(move.value, [0, height], [1, 0.7], {
+      extrapolateRight: Extrapolation.CLAMP,
+    });
+    console.log(movex);
+    return {
+      transform: [
+        {translateY: move.value},
+        {translateX: movex},
+        {scale: scale},
+      ],
+    };
+  });
 
   return (
     <View style={styles.container}>
@@ -47,8 +62,8 @@ const AnimationThree = () => {
               },
               animatedStyle,
             ]}></Animated.View>
-          <Animated.View style={[{flex: 1},animatedStyle]}>
-            <Text style={styles.titleText}>swipe up !</Text>
+          <Animated.View style={[{flex: 1}, animatedStyle]}>
+            <Text style={styles.titleText}> youtube </Text>
           </Animated.View>
         </Animated.View>
       </PanGestureHandler>
