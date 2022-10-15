@@ -39,10 +39,15 @@ const AnimationThree = () => {
   });
 
   const animatedStylevid = useAnimatedStyle(() => {
-    const setwidth = interpolate(move.value, [height-300, height - 150], [width, 200], {
-      extrapolateRight: Extrapolation.CLAMP,
-    });
-    const setheight = interpolate(move.value, [0, height - 150], [200, 100], {
+    const setwidth = interpolate(
+      move.value,
+      [height - 170, height - 100],
+      [width, 160],
+      {
+        extrapolateRight: Extrapolation.CLAMP,
+      },
+    );
+    const setheight = interpolate(move.value, [0, height - 150], [200, 80], {
       extrapolateRight: Extrapolation.CLAMP,
     });
     return {
@@ -50,12 +55,28 @@ const AnimationThree = () => {
       height: setheight,
     };
   });
+
   const animatedStyleView = useAnimatedStyle(() => {
-    const opacity = interpolate(move.value, [height-300, height - 150], [0, 1], {
-      extrapolateRight: Extrapolation.CLAMP,
-    });
+    const opacity = interpolate(
+      move.value,
+      [height - 200, height - 100],
+      [0, 1],
+      {
+        extrapolateRight: Extrapolation.CLAMP,
+      },
+    );
+
+    const setwidth = interpolate(
+      move.value,
+      [height - 170, height - 100],
+      [0, width - 200],
+      {
+        extrapolateRight: Extrapolation.CLAMP,
+      },
+    );
     return {
       opacity,
+      width: setwidth,
     };
   });
 
@@ -78,7 +99,6 @@ const AnimationThree = () => {
       <Animated.View style={[, {height: height - 200, alignItems: 'center'}]}>
         {/* <Text style={styles.titleText}> youtube </Text> */}
       </Animated.View>
-
       <Animated.View
         style={[
           {
