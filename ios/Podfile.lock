@@ -315,6 +315,8 @@ PODS:
     - React-RCTText
     - ReactCommon/turbomodule/core
     - Yoga
+  - RNVectorIcons (9.2.0):
+    - React-Core
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -352,6 +354,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
+  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -425,6 +428,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-gesture-handler"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
+  RNVectorIcons:
+    :path: "../node_modules/react-native-vector-icons"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -463,6 +468,7 @@ SPEC CHECKSUMS:
   ReactCommon: 1209130f460e4aa9d255ddc75fa0a827ebf93dfb
   RNGestureHandler: b7a872907ee289ada902127f2554fa1d2c076122
   RNReanimated: 60e291d42c77752a0f6d6f358387bdf225a87c6e
+  RNVectorIcons: fcc2f6cb32f5735b586e66d14103a74ce6ad61f8
   Yoga: 043f8eb97345d0171f27fead4d1849cacf0472a5
 
 PODFILE CHECKSUM: 6c2e469e04b07c8ac9ce1f30d567a75533e3a2d2

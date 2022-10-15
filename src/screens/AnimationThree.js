@@ -10,6 +10,7 @@ import Animated, {
 
 import React, {useRef} from 'react';
 import {Gesture, PanGestureHandler} from 'react-native-gesture-handler';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const AnimationThree = () => {
   const width = Dimensions.get('window').width;
@@ -69,7 +70,7 @@ const AnimationThree = () => {
     const setwidth = interpolate(
       move.value,
       [height - 170, height - 100],
-      [0, width - 200],
+      [0, width - 160],
       {
         extrapolateRight: Extrapolation.CLAMP,
       },
@@ -77,6 +78,34 @@ const AnimationThree = () => {
     return {
       opacity,
       width: setwidth,
+    };
+  });
+  const animatedStyleText = useAnimatedStyle(() => {
+    const setwidth = interpolate(
+      move.value,
+      [height - 140, height - 100],
+      [0, width - 290],
+      {
+        extrapolateRight: Extrapolation.CLAMP,
+        extrapolateLeft: Extrapolation.CLAMP,
+      },
+    );
+    return {
+      width: setwidth,
+    };
+  });
+  const animatedStyleIcon = useAnimatedStyle(() => {
+    const translateX = interpolate(
+      move.value,
+      [height - 170, height - 140],
+      [-100, 0],
+      {
+        extrapolateRight: Extrapolation.CLAMP,
+        extrapolateLeft: Extrapolation.CLAMP,
+      },
+    );
+    return {
+      transform: [{translateX}],
     };
   });
 
@@ -96,7 +125,7 @@ const AnimationThree = () => {
             animatedStylevid,
           ]}></Animated.View>
       </PanGestureHandler>
-      <Animated.View style={[, {height: height - 200, alignItems: 'center'}]}>
+      <Animated.View style={[{height: height - 200, alignItems: 'center'}]}>
         {/* <Text style={styles.titleText}> youtube </Text> */}
       </Animated.View>
       <Animated.View
@@ -105,14 +134,31 @@ const AnimationThree = () => {
             position: 'absolute',
             top: 0,
             left: 0,
-            width: width - 200,
-            alignItems: 'center',
-            height: 100,
+            height: 80,
             justifyContent: 'center',
+            flexDirection: 'row',
+            alignItems: 'center',
+            zIndex: 12200,
           },
           animatedStyleView,
         ]}>
-        <Text numberOfLines={1}>youtube youtubeyoutubeyoutube</Text>
+        <Icon
+          name="close"
+          size={40}
+          style={[
+            {
+              backgroundColor: 'white',
+              zIndex: 20,
+            },
+          ]}
+        />
+        <Animated.View style={[animatedStyleIcon]}>
+          <Icon name="replay" size={40} />
+        </Animated.View>
+        <Animated.View style={[{overflow: 'hidden'}, animatedStyleText]}>
+          <Text numberOfLines={1}>youtube youtubeyoutubeyoutube</Text>
+          <Text numberOfLines={1}>youtube youtubeyoutubeyoutube</Text>
+        </Animated.View>
       </Animated.View>
     </Animated.View>
   );
