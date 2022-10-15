@@ -18,10 +18,10 @@ const AnimationThree = () => {
   const move = useSharedValue(0);
   const gestureHandler = useAnimatedGestureHandler({
     onStart: (_, ctx) => {
-      ctx.startX = move.value;
+      ctx.startY = move.value;
     },
     onActive: (event, ctx) => {
-      move.value = ctx.startX + event.translationY;
+      move.value = ctx.startY + event.translationY;
       console.log(move.value);
     },
     onEnd: (event, ctx) => {
