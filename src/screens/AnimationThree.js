@@ -33,10 +33,10 @@ const AnimationThree = () => {
   });
 
   const animatedStyle = useAnimatedStyle(() => {
-    const movex = interpolate(move.value, [0, height], [0, width * 0.2], {
+    const movex = interpolate(move.value, [0, height], [0, width * 0.25], {
       extrapolateRight: Extrapolation.CLAMP,
     });
-    const scale = interpolate(move.value, [0, height], [1, 0.7], {
+    const scale = interpolate(move.value, [0, height], [1, 0.4], {
       extrapolateRight: Extrapolation.CLAMP,
     });
     console.log(movex);
@@ -62,11 +62,11 @@ const AnimationThree = () => {
               },
               animatedStyle,
             ]}></Animated.View>
-          <Animated.View style={[{flex: 1}, animatedStyle]}>
-            <Text style={styles.titleText}> youtube </Text>
-          </Animated.View>
         </Animated.View>
       </PanGestureHandler>
+      <Animated.View style={[animatedStyle, {flex: 1, alignItems: 'center'}]}>
+        <Text style={styles.titleText}> youtube </Text>
+      </Animated.View>
     </View>
   );
 };
@@ -76,8 +76,6 @@ export default AnimationThree;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
-    alignItems: 'center',
   },
   titleText: {
     fontSize: 14,
@@ -85,7 +83,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   box: {
-    height: 150,
     backgroundColor: 'blue',
     borderRadius: 5,
   },
