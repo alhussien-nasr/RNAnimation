@@ -138,7 +138,6 @@ const AnimationThree = () => {
             justifyContent: 'center',
             flexDirection: 'row',
             alignItems: 'center',
-            zIndex: 12200,
           },
           animatedStyleView,
         ]}>
