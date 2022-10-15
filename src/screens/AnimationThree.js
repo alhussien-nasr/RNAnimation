@@ -73,6 +73,8 @@ const AnimationThree = () => {
       [0, width - 160],
       {
         extrapolateRight: Extrapolation.CLAMP,
+        extrapolateLeft: Extrapolation.CLAMP,
+
       },
     );
     return {
@@ -154,7 +156,7 @@ const AnimationThree = () => {
         <Animated.View style={[animatedStyleIcon]}>
           <Icon name="replay" size={40} />
         </Animated.View>
-        <Animated.View style={[{overflow: 'hidden'}, animatedStyleText]}>
+        <Animated.View style={[{overflow: 'hidden' , marginLeft:5}, animatedStyleText]}>
           <Text numberOfLines={1}>youtube youtubeyoutubeyoutube</Text>
           <Text numberOfLines={1}>youtube youtubeyoutubeyoutube</Text>
         </Animated.View>
