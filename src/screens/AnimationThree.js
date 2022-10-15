@@ -22,52 +22,79 @@ const AnimationThree = () => {
     },
     onActive: (event, ctx) => {
       move.value = ctx.startY + event.translationY;
-      console.log(move.value);
+      console.log(move.value, 'active');
     },
     onEnd: (event, ctx) => {
       event.translationY > 100
-        ? (move.value = withSpring(height - 200))
+        ? (move.value = withSpring(height - 100))
         : (move.value = withSpring(0));
-      console.log(event.translationY);
+      console.log(event.translationY, 'end');
     },
   });
 
   const animatedStyle = useAnimatedStyle(() => {
-    const movex = interpolate(move.value, [0, height], [0, width * 0.25], {
-      extrapolateRight: Extrapolation.CLAMP,
-    });
-    const scale = interpolate(move.value, [0, height], [1, 0.4], {
-      extrapolateRight: Extrapolation.CLAMP,
-    });
-    console.log(movex);
     return {
-      transform: [
-        {translateY: move.value},
-        {translateX: movex},
-        {scale: scale},
-      ],
+      transform: [{translateY: move.value}],
+    };
+  });
+
+  const animatedStylevid = useAnimatedStyle(() => {
+    const setwidth = interpolate(move.value, [height-300, height - 150], [width, 200], {
+      extrapolateRight: Extrapolation.CLAMP,
+    });
+    const setheight = interpolate(move.value, [0, height - 150], [200, 100], {
+      extrapolateRight: Extrapolation.CLAMP,
+    });
+    return {
+      width: setwidth,
+      height: setheight,
+    };
+  });
+  const animatedStyleView = useAnimatedStyle(() => {
+    const opacity = interpolate(move.value, [height-300, height - 150], [0, 1], {
+      extrapolateRight: Extrapolation.CLAMP,
+    });
+    return {
+      opacity,
     };
   });
 
   return (
-    <View style={styles.container}>
+    <Animated.View style={[styles.container, animatedStyle]}>
       <PanGestureHandler onGestureEvent={gestureHandler}>
-        <Animated.View>
-          <Animated.View
-            style={[
-              styles.box,
-              {
-                height: 200,
-                width,
-              },
-              animatedStyle,
-            ]}></Animated.View>
-        </Animated.View>
+        <Animated.View
+          style={[
+            styles.box,
+            {
+              width,
+              zIndex: 300,
+              position: 'absolute',
+              right: 0,
+              top: 0,
+            },
+            animatedStylevid,
+          ]}></Animated.View>
       </PanGestureHandler>
-      <Animated.View style={[animatedStyle, {flex: 1, alignItems: 'center'}]}>
-        <Text style={styles.titleText}> youtube </Text>
+      <Animated.View style={[, {height: height - 200, alignItems: 'center'}]}>
+        {/* <Text style={styles.titleText}> youtube </Text> */}
       </Animated.View>
-    </View>
+
+      <Animated.View
+        style={[
+          {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: width - 200,
+            alignItems: 'center',
+            height: 100,
+            justifyContent: 'center',
+          },
+          animatedStyleView,
+        ]}>
+        <Text numberOfLines={1}>youtube youtubeyoutubeyoutube</Text>
+      </Animated.View>
+    </Animated.View>
   );
 };
 
@@ -76,6 +103,7 @@ export default AnimationThree;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
   },
   titleText: {
     fontSize: 14,
