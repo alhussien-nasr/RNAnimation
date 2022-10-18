@@ -85,7 +85,7 @@ const YoutubeVideoAnimation = () => {
     const setwidth = interpolate(
       move.value,
       [height - 140, height - 100],
-      [0, width /3],
+      [0, width / 3],
       {
         extrapolateRight: Extrapolation.CLAMP,
         extrapolateLeft: Extrapolation.CLAMP,
@@ -129,38 +129,40 @@ const YoutubeVideoAnimation = () => {
       <Animated.View style={[{height: height - 200, alignItems: 'center'}]}>
         {/* <Text style={styles.titleText}> youtube </Text> */}
       </Animated.View>
-      <Animated.View
-        style={[
-          {
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            height: 80,
-            justifyContent: 'center',
-            flexDirection: 'row',
-            alignItems: 'center',
-          },
-          animatedStyleView,
-        ]}>
-        <Icon
-          name="close"
-          size={35}
+      <PanGestureHandler onGestureEvent={gestureHandler}>
+        <Animated.View
           style={[
             {
-              backgroundColor: 'white',
-              zIndex: 20,
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              height: 80,
+              justifyContent: 'center',
+              flexDirection: 'row',
+              alignItems: 'center',
             },
-          ]}
-        />
-        <Animated.View style={[animatedStyleIcon]}>
-          <Icon name="replay" size={35} />
+            animatedStyleView,
+          ]}>
+          <Icon
+            name="close"
+            size={35}
+            style={[
+              {
+                backgroundColor: 'white',
+                zIndex: 20,
+              },
+            ]}
+          />
+          <Animated.View style={[animatedStyleIcon]}>
+            <Icon name="replay" size={35} />
+          </Animated.View>
+          <Animated.View
+            style={[{overflow: 'hidden', marginLeft: 5}, animatedStyleText]}>
+            <Text numberOfLines={1}>youtube youtubeyoutubeyoutube</Text>
+            <Text numberOfLines={1}>youtube youtubeyoutubeyoutube</Text>
+          </Animated.View>
         </Animated.View>
-        <Animated.View
-          style={[{overflow: 'hidden', marginLeft: 5}, animatedStyleText]}>
-          <Text numberOfLines={1}>youtube youtubeyoutubeyoutube</Text>
-          <Text numberOfLines={1}>youtube youtubeyoutubeyoutube</Text>
-        </Animated.View>
-      </Animated.View>
+      </PanGestureHandler>
     </Animated.View>
   );
 };
