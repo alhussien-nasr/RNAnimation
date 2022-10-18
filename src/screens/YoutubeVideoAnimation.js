@@ -23,12 +23,12 @@ const YoutubeVideoAnimation = () => {
     },
     onActive: (event, ctx) => {
       move.value = ctx.startY + event.translationY;
-      console.log(move.value, 'active');
+      console.log(event.translationY, 'active');
     },
     onEnd: (event, ctx) => {
-      event.translationY > 100
-        ? (move.value = withSpring(height - 100))
-        : (move.value = withSpring(0));
+      if (event.translationY > 100 || move.value > height - 170) {
+        move.value = withSpring(height - 100);
+      } else move.value = withSpring(0);
       console.log(event.translationY, 'end');
     },
   });
