@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import React, {useRef, useState} from 'react';
 
-const AnimationOne = () => {
+const HeaderAnimation = () => {
   const Max_Header_Height = 140;
   const Min_Header_Height = 60;
   const Scroll_Distance = Max_Header_Height - Min_Header_Height;
@@ -92,6 +92,6 @@ const AnimationOne = () => {
   );
 };
 
-export default AnimationOne;
+export default HeaderAnimation;
 
 const styles = StyleSheet.create({text: {fontSize: 20, marginHorizontal: 10}});

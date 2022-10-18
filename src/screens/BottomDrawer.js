@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import React, {useRef} from 'react';
 
-const AnimationTwo = () => {
+const BottomDrawer = () => {
   const width = Dimensions.get('window').width;
 
   const pan = useRef(new Animated.ValueXY()).current;
@@ -56,7 +56,7 @@ const AnimationTwo = () => {
   );
 };
 
-export default AnimationTwo;
+export default BottomDrawer;
 
 const styles = StyleSheet.create({
   container: {

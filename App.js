@@ -8,12 +8,12 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-import AnimationOne from './src/screens/AnimationOne';
-import AnimationThree from './src/screens/AnimationThree';
-import AnimationTwo from './src/screens/AnimationTwo';
+import BottomDrawer from './src/screens/BottomDrawer';
+import YoutubeVideoAnimation from './src/screens/YoutubeVideoAnimation';
+import HeaderAnimation from './src/screens/HeaderAnimation';
 
 const App = () => {
-  return <AnimationThree>hello</AnimationThree>;
+  return <YoutubeVideoAnimation>hello</YoutubeVideoAnimation>;
 };
 
 export default App;

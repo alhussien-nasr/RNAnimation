@@ -12,7 +12,7 @@ import React, {useRef} from 'react';
 import {Gesture, PanGestureHandler} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const AnimationThree = () => {
+const YoutubeVideoAnimation = () => {
   const width = Dimensions.get('window').width;
   const height = Dimensions.get('window').height;
 
@@ -74,7 +74,6 @@ const AnimationThree = () => {
       {
         extrapolateRight: Extrapolation.CLAMP,
         extrapolateLeft: Extrapolation.CLAMP,
-
       },
     );
     return {
@@ -156,7 +155,8 @@ const AnimationThree = () => {
         <Animated.View style={[animatedStyleIcon]}>
           <Icon name="replay" size={40} />
         </Animated.View>
-        <Animated.View style={[{overflow: 'hidden' , marginLeft:5}, animatedStyleText]}>
+        <Animated.View
+          style={[{overflow: 'hidden', marginLeft: 5}, animatedStyleText]}>
           <Text numberOfLines={1}>youtube youtubeyoutubeyoutube</Text>
           <Text numberOfLines={1}>youtube youtubeyoutubeyoutube</Text>
         </Animated.View>
@@ -165,7 +165,7 @@ const AnimationThree = () => {
   );
 };
 
-export default AnimationThree;
+export default YoutubeVideoAnimation;
 
 const styles = StyleSheet.create({
   container: {
