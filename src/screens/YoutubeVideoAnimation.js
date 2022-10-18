@@ -85,7 +85,7 @@ const YoutubeVideoAnimation = () => {
     const setwidth = interpolate(
       move.value,
       [height - 140, height - 100],
-      [0, width - 290],
+      [0, width /3],
       {
         extrapolateRight: Extrapolation.CLAMP,
         extrapolateLeft: Extrapolation.CLAMP,
@@ -144,7 +144,7 @@ const YoutubeVideoAnimation = () => {
         ]}>
         <Icon
           name="close"
-          size={40}
+          size={35}
           style={[
             {
               backgroundColor: 'white',
@@ -153,7 +153,7 @@ const YoutubeVideoAnimation = () => {
           ]}
         />
         <Animated.View style={[animatedStyleIcon]}>
-          <Icon name="replay" size={40} />
+          <Icon name="replay" size={35} />
         </Animated.View>
         <Animated.View
           style={[{overflow: 'hidden', marginLeft: 5}, animatedStyleText]}>
