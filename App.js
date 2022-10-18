@@ -13,7 +13,7 @@ import YoutubeVideoAnimation from './src/screens/YoutubeVideoAnimation';
 import HeaderAnimation from './src/screens/HeaderAnimation';
 
 const App = () => {
-  return <YoutubeVideoAnimation>hello</YoutubeVideoAnimation>;
+  return <YoutubeVideoAnimation/>;
 };
 
 export default App;
